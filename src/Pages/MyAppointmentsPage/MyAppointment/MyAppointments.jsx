@@ -40,7 +40,7 @@ const MyAppointments = () => {
       ) : (
         <>
           <div className="flex justify-center items-center px-3">
-            <h1 className="text-2xl font-semibold text-center me-auto">
+            <h1 className="lg:text-2xl md:text-2xl sm:text-2xl text-lg font-semibold text-center me-auto">
               My Appointments
             </h1>
 
@@ -53,7 +53,9 @@ const MyAppointments = () => {
                 (appointmentDate) => new Date(appointmentDate)
               )}
               customInput={
-                <button className="btn btn-outline ">{startDate}</button>
+                <button className="btn btn-outline lg:btn-md md:btn-md sm:btn-md btn-sm ">
+                  {startDate}
+                </button>
               }
             />
           </div>
@@ -85,7 +87,7 @@ const MyAppointments = () => {
             <div className="hero bg-white min-h-screen">
               <div className="hero-content text-center">
                 <div>
-                  <h1 className="text-5xl font-bold text-slate-400">
+                  <h1 className="lg:text-5xl md:text-2xl text-xl font-bold text-slate-400">
                     You Do Not Have <br /> Any Appointments For {startDate}
                   </h1>
                 </div>
