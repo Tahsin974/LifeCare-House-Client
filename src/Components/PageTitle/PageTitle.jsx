@@ -9,7 +9,7 @@ const PageTitle = ({ pageName }) => {
             {pageName}
           </h1>
           <p className="py-4 capitalize">
-            <Link to="/" className="hover:link">
+            <Link to="/home" className="hover:link">
               home
             </Link>{" "}
             / {pageName}

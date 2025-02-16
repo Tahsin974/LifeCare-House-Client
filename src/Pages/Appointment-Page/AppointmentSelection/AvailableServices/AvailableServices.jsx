@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import AvailableSlots from "../AvailableSlots/AvailableSlots";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const AvailableServices = () => {
   const [selectedService, setSelected] = useState(null);
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const { data: services = [], isPending } = useQuery({
     queryKey: "available-services",
     queryFn: async () => {
-      const result = await axiosSecure.get("/available-services");
+      const result = await axiosPublic.get("/available-services");
       return result.data;
     },
   });

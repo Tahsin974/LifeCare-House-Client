@@ -7,6 +7,7 @@ import Login from "../Pages/Login-Page/Login";
 import Appointment from "../Pages/Appointment-Page/Appointment/Appointment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import MyAppointments from "../Pages/MyAppointmentsPage/MyAppointment/MyAppointments";
 
 const ReactRoutes = () => {
   return (
@@ -23,6 +24,14 @@ const ReactRoutes = () => {
             element={
               <PrivateRoute>
                 <Appointment />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/my-appointments"
+            element={
+              <PrivateRoute>
+                <MyAppointments />
               </PrivateRoute>
             }
           />

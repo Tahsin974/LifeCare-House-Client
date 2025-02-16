@@ -56,66 +56,72 @@ const MenuBar = ({ children }) => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="navbar fixed z-10 bg-opacity-70 text-white  items-center bg-[#07332F] max-w-[1250px] mx-auto lg:px-24 md:px-10 sm:px-10">
-          <div className="navbar-start ">
-            <label
-              htmlFor="my-drawer-3"
-              aria-label="open sidebar"
-              className="btn btn-square btn-ghost lg:hidden"
-            >
-              <FiMenu size={25} />
-            </label>
-            <img src={logo} alt="Logo" className="w-[9rem] lg:flex hidden" />
-          </div>
+        <div className="sticky z-10 top-0">
+          <div className="navbar   text-white  items-center bg-[#07332F] max-w-[1250px] mx-auto lg:px-24 md:px-10 sm:px-10">
+            <div className="navbar-start ">
+              <label
+                htmlFor="my-drawer-3"
+                aria-label="open sidebar"
+                className="btn btn-square btn-ghost lg:hidden"
+              >
+                <FiMenu size={25} />
+              </label>
+              <img
+                src={logo}
+                alt="Logo"
+                className=" lg:flex hidden w-36 h-14"
+              />
+            </div>
 
-          <div className="navbar-center ">
-            <img src={logo} alt="Logo" className="w-[9rem] lg:hidden flex" />
-            <ul className="menu menu-horizontal hidden lg:flex">
-              {navOptions}
-            </ul>
-          </div>
-          <div className="navbar-end">
-            {user?.email ? (
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle bg-slate-400 hover:bg-slate-400 shadow-lg "
-                >
-                  <Avatar src={user?.photoURL || img} />
+            <div className="navbar-center ">
+              <img src={logo} alt="Logo" className="w-36 h-14 lg:hidden flex" />
+              <ul className="menu menu-horizontal hidden lg:flex">
+                {navOptions}
+              </ul>
+            </div>
+            <div className="navbar-end">
+              {user?.email ? (
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle bg-slate-400 hover:bg-slate-400 shadow-lg "
+                  >
+                    <Avatar src={user?.photoURL || img} />
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-gray-600 bg-opacity-80 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-1  font-semibold"
+                  >
+                    <li>
+                      <Link className=" text-lg">Profile</Link>
+                    </li>
+                    <li>
+                      <Link to="/my-appointments" className=" text-lg">
+                        My Appointments
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        onClick={handleLogOut}
+                        className="btn btn-sm bg-gray-300 border-gray-300 text-black"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-gray-600 bg-opacity-80 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                >
-                  <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <button
-                      onClick={handleLogOut}
-                      className="btn btn-sm bg-gray-300 border-gray-300 text-black"
-                    >
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link to="/login">
-                <button className="btn btn-outline rounded-none lg:btn-md md:btn-md btn-sm border-white text-white hover:bg-white hover:border-white hover:text-black">
-                  Login
-                </button>
-              </Link>
-            )}
+              ) : (
+                <Link to="/login">
+                  <button className="btn btn-outline rounded-none lg:btn-md md:btn-md btn-sm border-white text-white hover:bg-white hover:border-white hover:text-black">
+                    Login
+                  </button>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
+
         {/* Page content here */}
         <div className="z-0">{children}</div>
       </div>
