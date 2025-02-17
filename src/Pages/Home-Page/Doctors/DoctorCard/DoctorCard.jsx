@@ -8,19 +8,23 @@ import ButtonOutline from "../../../../Components/ButtonOutline/ButtonOutline";
 import { Link } from "react-router";
 
 const DoctorCard = ({ doctor }) => {
-  const { _id,name, specialization, rating, location, available, doctor_visit,image } =
-    doctor;
+  const {
+    _id,
+    name,
+    specialization,
+    rating,
+    location,
+    available,
+    doctor_visit,
+    image,
+  } = doctor;
   return (
     <div>
       <div className=" card bg-white shadow-xl p-5 border h-[100%]">
         <figure className="p-4">
-          <img
-            src={image}
-            alt="Shoes"
-            className="rounded-xl"
-          />
+          <img src={image} alt="doctor's image" className="rounded-xl" />
         </figure>
-        <div className="mt-4" >
+        <div className="mt-4">
           <h2 className="card-title">{name}</h2>
           <p>
             <small className="text-gray-400">{specialization}</small>
@@ -37,15 +41,21 @@ const DoctorCard = ({ doctor }) => {
 
           <Divider />
           <div className="my-3 space-y-3">
-            <p className="flex items-center gap-2"><IoLocationOutline size={25} /> {location}</p>
-            <p className="flex items-center gap-2 "><MdOutlineEventAvailable size={25} />{available}</p>
-            <p className="flex items-center gap-2 "><CiDollar size={25}/>{doctor_visit}</p>
-            
-            
+            <p className="flex items-center gap-2">
+              <IoLocationOutline size={25} /> {location}
+            </p>
+            <p className="flex items-center gap-2 ">
+              <MdOutlineEventAvailable size={25} />
+              {available}
+            </p>
+            <p className="flex items-center gap-2 ">
+              <CiDollar size={25} />
+              {doctor_visit}
+            </p>
           </div>
           <div className="mt-5 card-actions justify-center">
             <Link to={`/your-doctor/${_id}`}>
-            <ButtonOutline isWide={true} >View Profile</ButtonOutline>
+              <ButtonOutline isWide={true}>View Profile</ButtonOutline>
             </Link>
           </div>
         </div>

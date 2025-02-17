@@ -9,6 +9,7 @@ const Login = () => {
   const { googleSignUp, setUser } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location);
   const handleGoogleSignIn = () => {
     googleSignUp().then((result) => {
       const user = result.user;
@@ -27,10 +28,13 @@ const Login = () => {
     <>
       <div className="grid lg:grid-cols-2 mx-0">
         <div className=" bg-[#07332F] flex justify-center items-center">
-          <img src={img} className="max-w-lg" />
+          <img
+            src={img}
+            className="lg:max-w-lg md:max-w-md sm:max-w-sm max-w-xs"
+          />
         </div>
         <div className="flex justify-center items-center  ">
-          <div className="card border bg-base-100 w-full max-w-sm shrink-0 shadow-2xl m-20">
+          <div className="card border bg-white text-black w-full max-w-sm shrink-0 shadow-2xl m-20">
             <form className="card-body">
               <h1 className="text-2xl font-bold text-center py-3">
                 Login to LifeCare House

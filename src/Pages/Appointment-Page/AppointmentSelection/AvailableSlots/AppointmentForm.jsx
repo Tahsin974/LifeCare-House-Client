@@ -9,6 +9,7 @@ const AppointmentForm = ({ startDate, time, serviceName }) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useAuthContext();
   const navigate = useNavigate();
+
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.serviceName = serviceName;

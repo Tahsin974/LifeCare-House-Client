@@ -53,7 +53,7 @@ const MyAppointments = () => {
                 (appointmentDate) => new Date(appointmentDate)
               )}
               customInput={
-                <button className="btn btn-outline lg:btn-md md:btn-md sm:btn-md btn-sm ">
+                <button className="btn btn-outline border-black text-black lg:btn-md md:btn-md sm:btn-md btn-sm ">
                   {startDate}
                 </button>
               }

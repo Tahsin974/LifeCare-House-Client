@@ -31,6 +31,7 @@ const OurServices = () => {
           <img
             src={img}
             className="lg:max-w-2xl   rounded-lg shadow-2xl mx-auto"
+            alt="doctor's image"
           />
           <div>
             <div className="max-w-4xl mx-auto">

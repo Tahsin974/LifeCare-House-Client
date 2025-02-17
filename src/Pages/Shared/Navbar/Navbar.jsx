@@ -39,8 +39,13 @@ const MenuBar = ({ children }) => {
           Testimonials
         </HashLink>
       </li>
+      <li>
+        <HashLink className="text-lg font-semibold" to="/appointment">
+          Appointment
+        </HashLink>
+      </li>
 
-      {user?.email && (
+      {/* {user?.email && (
         <>
           <li>
             <HashLink className="text-lg font-semibold" to="/appointment">
@@ -48,7 +53,7 @@ const MenuBar = ({ children }) => {
             </HashLink>
           </li>
         </>
-      )}
+      )} */}
     </>
   );
   return (

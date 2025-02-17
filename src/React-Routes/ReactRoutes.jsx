@@ -19,14 +19,7 @@ const ReactRoutes = () => {
           <Route path="/your-doctor/:id" element={<ProfilePage />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/appointment"
-            element={
-              <PrivateRoute>
-                <Appointment />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/appointment" element={<Appointment />} />
           <Route
             path="/my-appointments"
             element={

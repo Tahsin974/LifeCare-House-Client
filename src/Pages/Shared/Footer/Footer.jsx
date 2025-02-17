@@ -1,10 +1,11 @@
+import { Link } from "react-router";
 import logo from "../../../assets/LOGO/logo2.png";
 import ButtonOutline from "../../../Components/ButtonOutline/ButtonOutline";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer bg-base-200 text-base-content p-10 grid grid-cols-1 lg:grid-cols-5 gap-4">
+      <footer className="footer bg-white text-black p-10 grid grid-cols-1 lg:grid-cols-5 gap-4">
         <aside className="lg:col-span-2 items-center space-y-2">
           <img src={logo} alt="Logo" className="w-36 h-14" />
           <p>
@@ -13,7 +14,9 @@ const Footer = () => {
             et doloribus cum laudantium temporibus! Similique dolorem delectus
             ex!
           </p>
-          <ButtonOutline>Appointment</ButtonOutline>
+          <Link to="/appointment">
+            <ButtonOutline>Appointment</ButtonOutline>
+          </Link>
         </aside>
         <nav>
           <h6 className="footer-title uppercase">Quick Links</h6>
