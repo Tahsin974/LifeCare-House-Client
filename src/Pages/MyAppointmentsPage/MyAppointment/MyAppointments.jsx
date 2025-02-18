@@ -4,10 +4,12 @@ import DatePicker from "react-datepicker";
 import useDateContext from "../../../Context/useDateContext";
 import useAuthContext from "../../../Context/useAuthContext";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const MyAppointments = () => {
   const axiosPublic = useAxiosPublic();
-  const [startDate, setStartDate, formattedDate] = useDateContext();
+  const [, , formattedDate] = useDateContext();
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const { user } = useAuthContext();
   const { data: Dates = [] } = useQuery({
@@ -20,12 +22,19 @@ const MyAppointments = () => {
     },
   });
   const { data: appointments = [], isPending } = useQuery({
-    queryKey: [startDate],
+    queryKey: [selectedDate],
     queryFn: async () => {
-      const res = await axiosPublic.get(
-        `/my-appointments?email=${user.email}&date=${startDate}`
-      );
-      return res.data;
+      if (selectedDate) {
+        const res = await axiosPublic.get(
+          `/my-appointments?email=${user.email}&date=${selectedDate}`
+        );
+        return res.data;
+      } else {
+        const res = await axiosPublic.get(
+          `/my-appointments?email=${user.email}`
+        );
+        return res.data;
+      }
     },
   });
   const appointmentDates = Dates.map((appointment) =>
@@ -40,28 +49,28 @@ const MyAppointments = () => {
       ) : (
         <>
           <div className="flex justify-center items-center px-3">
-            <h1 className="lg:text-2xl md:text-2xl sm:text-2xl text-lg font-semibold text-center me-auto">
+            <h1 className="lg:text-2xl md:text-2xl sm:text-2xl text-lg font-semibold text-center lg:me-auto md:me-auto sm:me-auto mr-6">
               My Appointments
             </h1>
 
             <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(formattedDate(date))}
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(formattedDate(date))}
               minDate={formattedDate(new Date())}
               popperPlacement="top-end"
               highlightDates={appointmentDates.map(
                 (appointmentDate) => new Date(appointmentDate)
               )}
               customInput={
-                <button className="btn btn-outline border-black text-black lg:btn-md md:btn-md sm:btn-md btn-sm ">
-                  {startDate}
+                <button className="btn btn-outline border-black text-black lg:btn-md md:btn-md btn-md  ">
+                  {selectedDate === null ? "All Appointments" : selectedDate}
                 </button>
               }
             />
           </div>
           {appointments.length ? (
             <div className="overflow-x-auto rounded-xl">
-              <table className="table table-lg">
+              <table className="table lg:table-lg md:table-md sm:tabs-sm ">
                 {/* head */}
                 <thead className="bg-gray-200">
                   <tr className="text-black">
@@ -88,7 +97,7 @@ const MyAppointments = () => {
               <div className="hero-content text-center">
                 <div>
                   <h1 className="lg:text-5xl md:text-2xl text-xl font-bold text-slate-400">
-                    You Do Not Have <br /> Any Appointments For {startDate}
+                    You Do Not Have <br /> Any Appointments For {selectedDate}
                   </h1>
                 </div>
               </div>

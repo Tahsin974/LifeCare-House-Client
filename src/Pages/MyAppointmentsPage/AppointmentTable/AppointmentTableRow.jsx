@@ -1,7 +1,7 @@
 const AppointmentTableRow = ({ appointment, index }) => {
   return (
     <tr key={appointment._id}>
-      <th>{index + 1}</th>
+      <td>{index + 1}</td>
       <td>{appointment.name}</td>
       <td>{appointment.serviceName}</td>
       <td>{appointment.time}</td>
