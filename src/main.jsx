@@ -7,23 +7,24 @@ import { HeroUIProvider } from "@heroui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./Provider/AuthProvider/AuthProvider.jsx";
 import DateProvider from "./Provider/DateProvider/DateProvider.jsx";
+import ToggleProvider from "./Provider/ToggleProvider/ToggleProvider.jsx";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <DateProvider>
-      <AuthProvider>
-        <BrowserRouter>
-          <QueryClientProvider client={queryClient}>
-            <HeroUIProvider>
-              <div className="max-w-[1250px] mx-auto">
+    <ToggleProvider>
+      <DateProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <QueryClientProvider client={queryClient}>
+              <HeroUIProvider>
                 <ReactRoutes />
-              </div>
-            </HeroUIProvider>
-          </QueryClientProvider>
-        </BrowserRouter>
-      </AuthProvider>
-    </DateProvider>
+              </HeroUIProvider>
+            </QueryClientProvider>
+          </BrowserRouter>
+        </AuthProvider>
+      </DateProvider>
+    </ToggleProvider>
   </StrictMode>
 );

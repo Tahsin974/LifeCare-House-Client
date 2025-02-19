@@ -8,11 +8,27 @@ import Appointment from "../Pages/Appointment-Page/Appointment/Appointment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import MyAppointments from "../Pages/MyAppointmentsPage/MyAppointment/MyAppointments";
+import DashboardLayOut from "../LayOut/DashboardLayOut";
+import DashboardMyAppointments from "../Pages/Dashboard/DashboardMyAppointments/DashboardMyAppointments";
 
 const ReactRoutes = () => {
   return (
     <div>
       <Routes>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardLayOut />
+            </PrivateRoute>
+          }
+        >
+          <Route path="/dashboard" element={<DashboardMyAppointments />} />
+          <Route
+            path="/dashboard/DashboardMyAppointments"
+            element={<DashboardMyAppointments />}
+          />
+        </Route>
         <Route path="/" element={<MainLayOut />}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />

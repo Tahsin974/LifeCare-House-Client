@@ -19,7 +19,7 @@ const MenuBar = ({ children }) => {
     <>
       {/* Before Login Options */}
       <li>
-        <HashLink className="text-lg font-semibold" to="/home">
+        <HashLink className="text-lg font-semibold" to="/home#banner">
           Home
         </HashLink>
       </li>
@@ -45,15 +45,15 @@ const MenuBar = ({ children }) => {
         </HashLink>
       </li>
 
-      {/* {user?.email && (
+      {user?.email && (
         <>
           <li>
-            <HashLink className="text-lg font-semibold" to="/appointment">
-              Appointment
+            <HashLink className="text-lg font-semibold" to="/dashboard">
+              Dashboard
             </HashLink>
           </li>
         </>
-      )} */}
+      )}
     </>
   );
   return (
@@ -62,7 +62,7 @@ const MenuBar = ({ children }) => {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="sticky z-10 top-0">
-          <div className="navbar   text-white  items-center bg-[#07332F] max-w-[1250px] mx-auto lg:px-24 md:px-10 sm:px-10">
+          <div className="navbar   text-white  items-center bg-[#07332F]  lg:px-24 md:px-10 sm:px-10">
             <div className="navbar-start ">
               <label
                 htmlFor="my-drawer-3"
