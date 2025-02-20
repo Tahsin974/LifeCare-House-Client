@@ -9,7 +9,7 @@ const Login = () => {
   const { googleSignUp, setUser } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const handleGoogleSignIn = () => {
     googleSignUp().then((result) => {
       const user = result.user;

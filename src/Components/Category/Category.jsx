@@ -4,7 +4,7 @@ const Category = ({
   selectedCategory,
   colNum = "3",
 }) => {
-  console.log(colNum);
+  // console.log(colNum);
   return (
     <div>
       <div

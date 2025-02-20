@@ -12,7 +12,7 @@ import MySlider from "../../../../Components/MySlider/MySilder";
 const Doctors = () => {
   const { doctors } = useDoctors();
 
-  console.log(doctors);
+  // console.log(doctors);
   return (
     <div className="min-h-screen my-20">
       <SectionTitle
@@ -20,7 +20,7 @@ const Doctors = () => {
         subTitle={`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`}
       />
 
-      <MySlider >
+      <MySlider>
         {doctors.map((doctor) => (
           <SwiperSlide key={doctor._id}>
             <DoctorCard doctor={doctor} />

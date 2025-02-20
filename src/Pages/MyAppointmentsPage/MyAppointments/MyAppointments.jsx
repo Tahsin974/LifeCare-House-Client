@@ -1,13 +1,13 @@
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import AppointmentTableRow from "../AppointmentTable/AppointmentTableRow";
 import DatePicker from "react-datepicker";
 import useDateContext from "../../../Context/useDateContext";
 import useAuthContext from "../../../Context/useAuthContext";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MyAppointments = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [, , formattedDate] = useDateContext();
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -15,7 +15,7 @@ const MyAppointments = () => {
   const { data: Dates = [] } = useQuery({
     queryKey: ["date"],
     queryFn: async () => {
-      const res = await axiosPublic.get(
+      const res = await axiosSecure.get(
         `/appointment-dates?email=${user.email}`
       );
       return res.data;
@@ -25,12 +25,12 @@ const MyAppointments = () => {
     queryKey: [selectedDate],
     queryFn: async () => {
       if (selectedDate) {
-        const res = await axiosPublic.get(
+        const res = await axiosSecure.get(
           `/my-appointments?email=${user.email}&date=${selectedDate}`
         );
         return res.data;
       } else {
-        const res = await axiosPublic.get(
+        const res = await axiosSecure.get(
           `/my-appointments?email=${user.email}`
         );
         return res.data;

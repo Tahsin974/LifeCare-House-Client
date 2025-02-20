@@ -62,7 +62,7 @@ const MenuBar = ({ children }) => {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="sticky z-10 top-0">
-          <div className="navbar   text-white  items-center bg-[#07332F]  lg:px-24 md:px-10 sm:px-10">
+          <div className="navbar max-w-[1250px] mx-auto  text-white  items-center bg-[#07332F]  lg:px-24 md:px-10 sm:px-10">
             <div className="navbar-start ">
               <label
                 htmlFor="my-drawer-3"

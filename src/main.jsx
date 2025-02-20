@@ -19,7 +19,9 @@ createRoot(document.getElementById("root")).render(
           <BrowserRouter>
             <QueryClientProvider client={queryClient}>
               <HeroUIProvider>
-                <ReactRoutes />
+                <div className="max-w-[1250px] mx-auto">
+                  <ReactRoutes />
+                </div>
               </HeroUIProvider>
             </QueryClientProvider>
           </BrowserRouter>

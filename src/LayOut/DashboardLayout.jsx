@@ -26,7 +26,7 @@ const DashboardLayOut = () => {
       <div className=" bg-white min-h-screen m-0">
         <div className="flex">
           <div
-            className={`lg:flex hidden sticky z-10 left-0 bg-[#212631] min-h-screen py-5 w-72 duration-500  overflow-hidden  ${
+            className={`lg:flex hidden sticky z-10 left-0 bg-[#212631] min-h-screen py-5 w-72 duration-250  overflow-hidden  ${
               toggle && "w-[0px] overflow-hidden"
             }`}
           >

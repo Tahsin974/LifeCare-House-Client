@@ -7,7 +7,7 @@ import Login from "../Pages/Login-Page/Login";
 import Appointment from "../Pages/Appointment-Page/Appointment/Appointment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
-import MyAppointments from "../Pages/MyAppointmentsPage/MyAppointment/MyAppointments";
+import MyAppointments from "../Pages/MyAppointmentsPage/MyAppointments/MyAppointments";
 import DashboardLayOut from "../LayOut/DashboardLayOut";
 import DashboardMyAppointments from "../Pages/Dashboard/DashboardMyAppointments/DashboardMyAppointments";
 
