@@ -1,6 +1,5 @@
 const TableRow = ({ appointment, index }) => {
   const { name, date, time, serviceName } = appointment;
-  console.log(appointment);
   return (
     <tr>
       <th>{index + 1}</th>

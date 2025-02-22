@@ -1,7 +1,5 @@
 import { IoMdMenu } from "react-icons/io";
-import DashboardNavbar, {
-  navOptions,
-} from "../Pages/Shared/DashboardNavbar/DashboardNavbar";
+import DashboardNavbar from "../Pages/Shared/DashboardNavbar/DashboardNavbar";
 import { FaSearch } from "react-icons/fa";
 import { IoNotifications } from "react-icons/io5";
 import useToggleContext from "../Context/useToggleContext";
@@ -9,10 +7,12 @@ import { Link, Outlet, useNavigate } from "react-router";
 import logo from "../assets/LOGO/logo.png";
 import useAuthContext from "../Context/useAuthContext";
 import img from "../assets/SignUp/user.png";
+import useAdmin from "../Hooks/useAdmin";
 
 const DashboardLayOut = () => {
   const [toggle, setToggle] = useToggleContext();
   const { user, userLogOut, setUser } = useAuthContext();
+  const [isAdmin] = useAdmin();
   const navigate = useNavigate();
   const handleLogOut = () => {
     userLogOut().then(() => {
@@ -20,6 +20,76 @@ const DashboardLayOut = () => {
       navigate("/");
     });
   };
+
+  const navOptions = (
+    <>
+      {isAdmin ? (
+        <>
+          <li>
+            <Link className="text-lg font-light hover:bg-slate-700">
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-lg font-light hover:bg-slate-700"
+              to="/dashboard/all-users"
+            >
+              All Users
+            </Link>
+          </li>
+          <li>
+            <Link className="text-lg font-light hover:bg-slate-700">
+              Add a Doctor
+            </Link>
+          </li>
+          <li>
+            <Link className="text-lg font-light hover:bg-slate-700">
+              Manage Doctors
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-lg font-light hover:bg-slate-700"
+              to="/home#banner"
+            >
+              Home
+            </Link>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link
+              to="/dashboard/DashboardMyAppointments"
+              className="text-lg font-light hover:bg-slate-700"
+            >
+              My Appointments
+            </Link>
+          </li>
+          <li>
+            <Link className="text-lg font-light hover:bg-slate-700">
+              My Reviews
+            </Link>
+          </li>
+
+          <li>
+            <Link className="text-lg font-light hover:bg-slate-700">
+              My History
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-lg font-light hover:bg-slate-700"
+              to="/home#banner"
+            >
+              Home
+            </Link>
+          </li>
+        </>
+      )}
+    </>
+  );
 
   return (
     <div>

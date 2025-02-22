@@ -5,23 +5,43 @@ import Swal from "sweetalert2";
 import ButtonOrange from "../../Components/ButtonOrange/ButtonOrange";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation } from "react-router";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const Login = () => {
   const { googleSignUp, setUser } = useAuthContext();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
   const handleGoogleSignIn = () => {
     googleSignUp().then((result) => {
       const user = result.user;
+      const userInfo = {
+        email: user.email,
+        name: user.displayName,
+      };
       setUser(user);
-      Swal.fire({
-        title: "Sign Up is Successfully Done!",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-
-      navigate(location.state ? location.state : "/", { replace: true });
+      console.log(userInfo);
+      axiosPublic
+        .post(`/all-users?email=${user.email}`, userInfo)
+        .then((res) => {
+          if (res.data.insertedId) {
+            Swal.fire({
+              title: "Sign Up is Successfully Done!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location.state ? location.state : "/", { replace: true });
+          } else {
+            Swal.fire({
+              title: "Sign Up is Successfully Done!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location.state ? location.state : "/", { replace: true });
+          }
+        });
     });
   };
   return (

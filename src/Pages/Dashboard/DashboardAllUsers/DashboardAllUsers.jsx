@@ -1,16 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useAuthContext from "../../../Context/useAuthContext";
-import AppointmentsTableRow from "./AppointmentsTableRow";
+import AllUsersTableRow from "./AllUsersTableRow";
 
-const DashboardMyAppointments = () => {
+const DashboardAllUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const { user } = useAuthContext();
-  const { data: myAppointments = [], isPending } = useQuery({
-    queryKey: [user.email],
+  const {
+    data: allUsers = [],
+    isPending,
+    refetch,
+  } = useQuery({
+    queryKey: ["all-users"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/my-appointments?email=${user.email}`);
-      return res.data;
+      const result = await axiosSecure.get("/all-users");
+      return result.data;
     },
   });
   return (
@@ -23,10 +25,10 @@ const DashboardMyAppointments = () => {
         <div>
           <div className="pb-10">
             <h1 className="text-3xl font-bold text-left">
-              My Appointments : {myAppointments.length}
+              All Users : {allUsers.length}
             </h1>
           </div>
-          {!myAppointments.length ? (
+          {!allUsers.length ? (
             <div className="hero bg-white min-h-screen">
               <div className="hero-content text-center">
                 <div>
@@ -44,18 +46,18 @@ const DashboardMyAppointments = () => {
                   <tr>
                     <th>#</th>
                     <th>NAME</th>
-                    <th>DATE</th>
-                    <th>TIME</th>
-                    <th>TREATMENT</th>
-                    <th>PAYMENT</th>
+                    <th>EMAIL</th>
+                    <th>JOB</th>
+                    <th>ACTION</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white">
-                  {myAppointments.map((appointment, index) => (
-                    <AppointmentsTableRow
-                      key={appointment._id}
+                  {allUsers.map((user, index) => (
+                    <AllUsersTableRow
+                      key={user._id}
                       index={index}
-                      appointment={appointment}
+                      user={user}
+                      refetch={refetch}
                     />
                   ))}
                 </tbody>
@@ -68,4 +70,4 @@ const DashboardMyAppointments = () => {
   );
 };
 
-export default DashboardMyAppointments;
+export default DashboardAllUsers;
