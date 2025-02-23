@@ -4,10 +4,14 @@ import useAdmin from "../../../Hooks/useAdmin";
 
 const DashboardNavbar = () => {
   const [isAdmin] = useAdmin();
+  // const isAdmin = true;
   const navOptions = (
     <>
-      {isAdmin ? (
+      {isAdmin && (
         <>
+          <div className="divider my-6">
+            <h2 className="text-xl font-bold text-gray-300">Admin </h2>
+          </div>
           <li>
             <Link className="text-lg font-light hover:bg-slate-700">
               Dashboard
@@ -31,46 +35,39 @@ const DashboardNavbar = () => {
               Manage Doctors
             </Link>
           </li>
-          <li>
-            <Link
-              className="text-lg font-light hover:bg-slate-700"
-              to="/home#banner"
-            >
-              Home
-            </Link>
-          </li>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link
-              to="/dashboard/DashboardMyAppointments"
-              className="text-lg font-light hover:bg-slate-700"
-            >
-              My Appointments
-            </Link>
-          </li>
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              My Reviews
-            </Link>
-          </li>
-
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              My History
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-lg font-light hover:bg-slate-700"
-              to="/home#banner"
-            >
-              Home
-            </Link>
-          </li>
+          <div className="divider my-6">
+            <h2 className="text-xl font-bold text-gray-300">User </h2>
+          </div>
         </>
       )}
+
+      <li>
+        <Link
+          to="/dashboard/DashboardMyAppointments"
+          className="text-lg font-light hover:bg-slate-700"
+        >
+          My Appointments
+        </Link>
+      </li>
+      <li>
+        <Link className="text-lg font-light hover:bg-slate-700">
+          My Reviews
+        </Link>
+      </li>
+
+      <li>
+        <Link className="text-lg font-light hover:bg-slate-700">
+          My History
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="text-lg font-light hover:bg-slate-700"
+          to="/home#banner"
+        >
+          Home
+        </Link>
+      </li>
     </>
   );
   return (

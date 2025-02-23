@@ -13,6 +13,7 @@ const DashboardLayOut = () => {
   const [toggle, setToggle] = useToggleContext();
   const { user, userLogOut, setUser } = useAuthContext();
   const [isAdmin] = useAdmin();
+  // const isAdmin = true;
   const navigate = useNavigate();
   const handleLogOut = () => {
     userLogOut().then(() => {

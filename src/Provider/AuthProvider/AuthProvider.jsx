@@ -28,15 +28,17 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      //   console.log("currentUser", currentUser);
+      const loggedUser = currentUser?.email || user.email;
       if (currentUser) {
-        const user = { email: currentUser.email };
+        const user = { email: loggedUser };
         axiosPublic.post("/jwt", user).then((res) => console.log(res.data));
       } else {
         axiosPublic.post("/logout").then((res) => console.log(res.data));
       }
     });
-    return unsubscribe;
+    return () => {
+      return unsubscribe();
+    };
   }, []);
   const AuthInfo = { googleSignUp, userLogOut, user, setUser, loading };
   return (

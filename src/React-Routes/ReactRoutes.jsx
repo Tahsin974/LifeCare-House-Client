@@ -12,71 +12,55 @@ import DashboardLayOut from "../LayOut/DashboardLayOut";
 import DashboardMyAppointments from "../Pages/Dashboard/DashboardMyAppointments/DashboardMyAppointments";
 import DashboardAllUsers from "../Pages/Dashboard/DashboardAllUsers/DashboardAllUsers";
 import AdminRoute from "./AdminRoute";
-import useAdmin from "../Hooks/useAdmin";
-
 const ReactRoutes = () => {
-  const [isAdmin, adminLoading] = useAdmin();
-  const dashboardRoute = !isAdmin ? (
-    <DashboardMyAppointments />
-  ) : (
-    <AdminRoute>
-      <DashboardAllUsers />
-    </AdminRoute>
-  );
   return (
     <div>
-      {!adminLoading ? (
-        <Routes>
+      <Routes>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardLayOut />
+            </PrivateRoute>
+          }
+        >
+          <Route path="/dashboard" element={<DashboardMyAppointments />} />
+          {/* ADMIN ROUTES */}
           <Route
-            path="/dashboard"
+            path="/dashboard/all-users"
+            element={
+              <AdminRoute>
+                <DashboardAllUsers />
+              </AdminRoute>
+            }
+          />
+
+          {/* USER ROUTES */}
+
+          <Route
+            path="/dashboard/DashboardMyAppointments"
+            element={<DashboardMyAppointments />}
+          />
+        </Route>
+        <Route path="/" element={<MainLayOut />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/your-doctor/:id" element={<ProfilePage />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route
+            path="/my-appointments"
             element={
               <PrivateRoute>
-                <DashboardLayOut />
+                <MyAppointments />
               </PrivateRoute>
             }
-          >
-            <Route path="/dashboard" element={dashboardRoute} />
-            {/* ADMIN ROUTES */}
-            <Route
-              path="/dashboard/all-users"
-              element={
-                <AdminRoute>
-                  <DashboardAllUsers />
-                </AdminRoute>
-              }
-            />
+          />
+        </Route>
 
-            {/* USER ROUTES */}
-
-            <Route
-              path="/dashboard/DashboardMyAppointments"
-              element={<DashboardMyAppointments />}
-            />
-          </Route>
-          <Route path="/" element={<MainLayOut />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/your-doctor/:id" element={<ProfilePage />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/appointment" element={<Appointment />} />
-            <Route
-              path="/my-appointments"
-              element={
-                <PrivateRoute>
-                  <MyAppointments />
-                </PrivateRoute>
-              }
-            />
-          </Route>
-
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      ) : (
-        <div className="min-h-screen flex justify-center items-center">
-          <span className="loading loading-ring loading-lg"></span>
-        </div>
-      )}
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
     </div>
   );
 };
