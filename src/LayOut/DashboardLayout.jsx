@@ -1,6 +1,5 @@
 import { IoMdMenu } from "react-icons/io";
 import DashboardNavbar from "../Pages/Shared/DashboardNavbar/DashboardNavbar";
-import { FaSearch } from "react-icons/fa";
 import { IoNotifications } from "react-icons/io5";
 import useToggleContext from "../Context/useToggleContext";
 import { Link, Outlet, useNavigate } from "react-router";
@@ -24,8 +23,11 @@ const DashboardLayOut = () => {
 
   const navOptions = (
     <>
-      {isAdmin ? (
+      {isAdmin && (
         <>
+          <div className="divider my-6">
+            <h2 className="text-xl font-bold text-gray-300">Admin </h2>
+          </div>
           <li>
             <Link className="text-lg font-light hover:bg-slate-700">
               Dashboard
@@ -49,46 +51,39 @@ const DashboardLayOut = () => {
               Manage Doctors
             </Link>
           </li>
-          <li>
-            <Link
-              className="text-lg font-light hover:bg-slate-700"
-              to="/home#banner"
-            >
-              Home
-            </Link>
-          </li>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link
-              to="/dashboard/DashboardMyAppointments"
-              className="text-lg font-light hover:bg-slate-700"
-            >
-              My Appointments
-            </Link>
-          </li>
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              My Reviews
-            </Link>
-          </li>
-
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              My History
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-lg font-light hover:bg-slate-700"
-              to="/home#banner"
-            >
-              Home
-            </Link>
-          </li>
+          <div className="divider my-6">
+            <h2 className="text-xl font-bold text-gray-300">User </h2>
+          </div>
         </>
       )}
+
+      <li>
+        <Link
+          to="/dashboard/DashboardMyAppointments"
+          className="text-lg font-light hover:bg-slate-700"
+        >
+          My Appointments
+        </Link>
+      </li>
+      <li>
+        <Link className="text-lg font-light hover:bg-slate-700">
+          My Reviews
+        </Link>
+      </li>
+
+      <li>
+        <Link className="text-lg font-light hover:bg-slate-700">
+          My History
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="text-lg font-light hover:bg-slate-700"
+          to="/home#banner"
+        >
+          Home
+        </Link>
+      </li>
     </>
   );
 
@@ -111,71 +106,74 @@ const DashboardLayOut = () => {
                   type="checkbox"
                   className="drawer-toggle"
                 />
-                <div className="drawer-content flex flex-col">
+                <div className="drawer-content  flex flex-col">
                   {/* Navbar */}
-                  <div className="navbar bg-white w-full">
-                    <div
-                      tabIndex={0}
-                      role="button"
-                      className="btn btn-ghost btn-circle lg:flex hidden "
-                      onClick={() => setToggle(!toggle)}
-                    >
-                      <IoMdMenu size={30} />
-                    </div>
-                    <div className="flex-none lg:hidden">
-                      <label
-                        htmlFor="my-drawer-3"
-                        aria-label="open sidebar"
-                        className="btn btn-square btn-ghost"
+                  <div className="sticky top-0 z-10">
+                    <div className="navbar  bg-white w-full">
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        className="btn btn-ghost btn-circle lg:flex hidden "
+                        onClick={() => setToggle(!toggle)}
                       >
                         <IoMdMenu size={30} />
-                      </label>
-                    </div>
-
-                    <div className=" ms-auto ">
-                      <button className="btn btn-ghost btn-circle">
-                        <FaSearch size={20} />
-                      </button>
-                      <button className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                          <IoNotifications size={20} />
-                        </div>
-                      </button>
-                      <div className="dropdown dropdown-end">
-                        <div
-                          tabIndex={0}
-                          role="button"
-                          className="btn btn-ghost btn-circle avatar"
+                      </div>
+                      <div className="flex-none lg:hidden">
+                        <label
+                          htmlFor="my-drawer-3"
+                          aria-label="open sidebar"
+                          className="btn btn-square btn-ghost"
                         >
-                          <div className="w-10 rounded-full">
-                            <img alt="user photo" src={user?.photoURL || img} />
+                          <IoMdMenu size={30} />
+                        </label>
+                      </div>
+
+                      <div className=" ms-auto ">
+                        <button className="btn btn-ghost btn-circle">
+                          <div className="indicator">
+                            <IoNotifications size={20} />
                           </div>
-                        </div>
+                        </button>
+                        <div className="dropdown dropdown-end">
+                          <div
+                            tabIndex={0}
+                            role="button"
+                            className="btn btn-ghost btn-circle avatar"
+                          >
+                            <div className="w-10 rounded-full">
+                              <img
+                                alt="user photo"
+                                src={user?.photoURL || img}
+                              />
+                            </div>
+                          </div>
 
-                        <ul
-                          tabIndex={0}
-                          className="menu menu-sm dropdown-content bg-gray-600 bg-opacity-80 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-1  font-semibold text-white"
-                        >
-                          <li>
-                            <Link className=" text-lg">Profile</Link>
-                          </li>
-                          <li>
-                            <Link to="/my-appointments" className=" text-lg">
-                              My Appointments
-                            </Link>
-                          </li>
-                          <li>
-                            <button
-                              onClick={handleLogOut}
-                              className="btn btn-sm bg-gray-300 border-gray-300 text-black"
-                            >
-                              Logout
-                            </button>
-                          </li>
-                        </ul>
+                          <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-gray-600 bg-opacity-80 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-1  font-semibold text-white"
+                          >
+                            <li>
+                              <Link className=" text-lg">Profile</Link>
+                            </li>
+                            <li>
+                              <Link to="/my-appointments" className=" text-lg">
+                                My Appointments
+                              </Link>
+                            </li>
+                            <li>
+                              <button
+                                onClick={handleLogOut}
+                                className="btn btn-sm bg-gray-300 border-gray-300 text-black"
+                              >
+                                Logout
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
+
                   {/* Page content here */}
                   <Outlet />
                 </div>

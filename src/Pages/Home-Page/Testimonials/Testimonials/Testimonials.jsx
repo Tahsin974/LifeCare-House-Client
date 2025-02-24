@@ -9,7 +9,7 @@ import MySlider from "../../../../Components/MySlider/MySilder";
 const Testimonials = () => {
   const axiosPublic = useAxiosPublic();
   const { data: testimonials = [] } = useQuery({
-    queryKey: ["testimonials"],
+    queryKey: [axiosPublic, "testimonials"],
     queryFn: async () => {
       const res = await axiosPublic.get("/feedbacks");
       return res.data;

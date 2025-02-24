@@ -1,9 +1,9 @@
 import { HashLink } from "react-router-hash-link";
-import banner from "../../../assets/Home-Banner/banner.png";
+import banner from "../../../assets/Home-Banner/banner.webp";
 import ButtonOrange from "../../../Components/ButtonOrange/ButtonOrange";
 const HomeBanner = () => {
   return (
-    <div id="banner" className="hero bg-[#07332F] min-h-screen lg:px-20 ">
+    <div id="banner" className="hero bg-[#07332F] lg:px-20 py-20">
       <div className="hero-content flex-col-reverse lg:flex-row-reverse  items-center ">
         <figure className="max-w-xl ">
           <img src={banner} className="image-full" alt="doctor's image" />

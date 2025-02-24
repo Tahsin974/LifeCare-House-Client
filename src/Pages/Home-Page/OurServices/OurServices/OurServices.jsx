@@ -1,14 +1,14 @@
-import img from "../../../../assets/Service/doctor-with-stethoscope.jpg";
+import img from "../../../../assets/Service/doctor-with-stethoscope.webp";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Category from "../../../../Components/Category/Category";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 const OurServices = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Preventive Care");
+  const [selectedCategory, setSelectedCategory] = useState("Cosmetic Care");
   const axiosPublic = useAxiosPublic();
   const { data: services = [], isPending } = useQuery({
-    queryKey: ["services"],
+    queryKey: [axiosPublic, "services"],
     queryFn: async () => {
       const res = await axiosPublic.get("/services");
       return res.data;
@@ -25,8 +25,8 @@ const OurServices = () => {
   );
 
   return (
-    <div className="my-24">
-      <div className="hero bg-white min-h-screen ">
+    <div className="my-20">
+      <div className="hero bg-white">
         <div className="hero-content flex-col lg:flex-row  items-start lg:space-x-4 space-y-9 ">
           <img
             src={img}

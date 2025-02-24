@@ -9,7 +9,7 @@ const DashboardAllUsers = () => {
     isPending,
     refetch,
   } = useQuery({
-    queryKey: ["all-users"],
+    queryKey: [axiosSecure, "all-users"],
     queryFn: async () => {
       const result = await axiosSecure.get("/all-users");
       return result.data;

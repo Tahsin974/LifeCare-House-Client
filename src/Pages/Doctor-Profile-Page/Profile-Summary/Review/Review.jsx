@@ -7,7 +7,7 @@ import TestimonialCard from "../../../Home-Page/Testimonials/TestimonialCard/Tes
 const Review = () => {
   const axiosPublic = useAxiosPublic();
   const { data: testimonials = [] } = useQuery({
-    queryKey: ["testimonials"],
+    queryKey: [axiosPublic, "testimonials"],
     queryFn: async () => {
       const res = await axiosPublic.get("/feedbacks");
       return res.data;

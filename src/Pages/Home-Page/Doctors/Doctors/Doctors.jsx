@@ -14,7 +14,7 @@ const Doctors = () => {
 
   // console.log(doctors);
   return (
-    <div className="min-h-screen my-20">
+    <div className="my-20">
       <SectionTitle
         heading={"Our Expert Doctors"}
         subTitle={`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`}

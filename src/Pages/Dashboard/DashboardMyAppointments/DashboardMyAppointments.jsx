@@ -7,7 +7,7 @@ const DashboardMyAppointments = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuthContext();
   const { data: myAppointments = [], isPending } = useQuery({
-    queryKey: [user.email],
+    queryKey: [axiosSecure, user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/my-appointments?email=${user.email}`);
       return res.data;

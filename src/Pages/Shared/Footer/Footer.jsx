@@ -20,34 +20,68 @@ const Footer = () => {
         </aside>
         <nav>
           <h6 className="footer-title uppercase">Quick Links</h6>
-          <p>About Us</p>
-          <p>Service</p>
-          <p>Doctors</p>
-          <p>Departments</p>
-          <p>Online Payment</p>
-          <p>Contact Us</p>
-          <p>My Account</p>
+          <ul>
+            <li>
+              <a>About Us</a>
+            </li>
+            <li>
+              <a>Service</a>
+            </li>
+            <li>
+              <a>Doctors</a>
+            </li>
+            <li>
+              <a>Departments</a>
+            </li>
+            <li>
+              <a>Online Payment</a>
+            </li>
+            <li>
+              <a>Contact Us</a>
+            </li>
+            <li>
+              <a>My Account</a>
+            </li>
+          </ul>
         </nav>
         <nav>
           <h6 className="footer-title uppercase">LifeCare House Services</h6>
-          <p>Pediatric Clinic</p>
-          <p>Diagnosis Clinic</p>
-          <p>Cardiac Clinic</p>
-          <p>Laboratory Analysis</p>
-          <p>Gynecological Clinic</p>
-          <p>Personal Counseling</p>
-          <p>Dental Clinic</p>
+          <ul>
+            <li>
+              <a>Pediatric Clinic</a>
+            </li>
+            <li>
+              <a>Diagnosis Clinic</a>
+            </li>
+            <li>
+              <a>Cardiac Clinic</a>
+            </li>
+            <li>
+              <a>Laboratory Analysis</a>
+            </li>
+            <li>
+              <a>Gynecological Clinic</a>
+            </li>
+            <li>
+              <a>Personal Counseling</a>
+            </li>
+            <li>
+              <a>Dental Clinic</a>
+            </li>
+          </ul>
         </nav>
-        <nav>
+        <div>
           <h6 className="footer-title uppercase">Working Hours</h6>
-          <p>Monday - 10 am to 7 pm</p>
-          <p>Tuesday - 10 am to 7 pm</p>
-          <p>Wednesday - 10 am to 7 pm</p>
-          <p>Thursday - 10 am to 7 pm</p>
-          <p>Friday - 10 am to 7 pm</p>
-          <p>Saturday - 10 am to 7 pm</p>
-          <p>Sunday - 10 am to 7 pm</p>
-        </nav>
+          <ul>
+            <li>Monday - 10 am to 7 pm</li>
+            <li>Tuesday - 10 am to 7 pm</li>
+            <li>Wednesday - 10 am to 7 pm</li>
+            <li>Thursday - 10 am to 7 pm</li>
+            <li>Friday - 10 am to 7 pm</li>
+            <li>Saturday - 10 am to 7 pm</li>
+            <li>Sunday - 10 am to 7 pm</li>
+          </ul>
+        </div>
       </footer>
     </div>
   );
