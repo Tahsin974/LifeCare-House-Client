@@ -24,8 +24,8 @@ const MenuBar = ({ children }) => {
         </HashLink>
       </li>
       <li>
-        <HashLink className="text-lg font-semibold" to="/about">
-          About
+        <HashLink className="text-lg font-semibold" to="/home#doctors">
+          Doctors
         </HashLink>
       </li>
 

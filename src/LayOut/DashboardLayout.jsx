@@ -183,7 +183,7 @@ const DashboardLayOut = () => {
                     aria-label="close sidebar"
                     className="drawer-overlay"
                   ></label>
-                  <div className="menu bg-[#212631] min-h-full max-w-80 text-white p-4">
+                  <div className="menu bg-[#212631] min-h-full max-w-80 text-white px-4 py-24">
                     {/* Navbar Logo */}
                     <figure>
                       <img src={logo} alt="Logo" className=" flex  w-36 h-14" />

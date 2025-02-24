@@ -1,7 +1,7 @@
 import { Modal, ModalContent, ModalHeader, ModalBody } from "@heroui/react";
 import useDateContext from "../../../../Context/useDateContext";
 import AppointmentForm from "./AppointmentForm";
-const MyModal = ({ time, name, isOpen, onOpenChange }) => {
+const MyModal = ({ time, name, doctorName, isOpen, onOpenChange }) => {
   const [startDate] = useDateContext();
   return (
     <Modal
@@ -11,6 +11,9 @@ const MyModal = ({ time, name, isOpen, onOpenChange }) => {
       }}
       isOpen={isOpen}
       onOpenChange={onOpenChange}
+      backdrop={"blur"}
+      scrollBehavior={"inside"}
+      placement="auto"
     >
       <ModalContent>
         {() => (
@@ -20,6 +23,7 @@ const MyModal = ({ time, name, isOpen, onOpenChange }) => {
               <AppointmentForm
                 serviceName={name}
                 time={time}
+                doctorName={doctorName}
                 startDate={startDate}
               />
             </ModalBody>

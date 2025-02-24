@@ -6,11 +6,12 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
 
-const SlotCard = ({ slot, name }) => {
+const SlotCard = ({ slot, name, doctorName }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const navigate = useNavigate();
 
   const { available, time } = slot;
+  console.log("avail:", available);
   const { user } = useAuthContext();
   const location = useLocation();
   const handleModal = () => {
@@ -44,13 +45,14 @@ const SlotCard = ({ slot, name }) => {
           <Button
             onPress={handleModal}
             className="btn lg:btn-wide  bg-orange-600 text-white border-orange-600 hover:bg-orange-700  hover:border-orange-700"
-            disabled={available}
+            disabled={!available && true}
           >
             Book Appointment
           </Button>
           <MyModal
             time={time}
             name={name}
+            doctorName={doctorName}
             isOpen={isOpen}
             onOpenChange={onOpenChange}
           />

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuthContext from "../../../Context/useAuthContext";
-import AppointmentsTableRow from "./AppointmentsTableRow";
+import AppointmentsTableRow from "./TableRow";
 
 const DashboardMyAppointments = () => {
   const axiosSecure = useAxiosSecure();
