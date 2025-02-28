@@ -56,7 +56,10 @@ const DashboardNavbar = () => {
       </li>
 
       <li>
-        <Link className="text-lg font-light hover:bg-slate-700">
+        <Link
+          to="/dashboard/my-history"
+          className="text-lg font-light hover:bg-slate-700"
+        >
           My History
         </Link>
       </li>

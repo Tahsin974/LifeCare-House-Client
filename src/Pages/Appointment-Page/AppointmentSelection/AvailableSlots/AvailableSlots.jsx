@@ -1,7 +1,7 @@
 import SlotCard from "./SlotCard";
 
 const AvailableSlots = ({ service }) => {
-  const { slots, name, doctorName } = service;
+  const { slots, name, doctorName, doctor_visit } = service;
   // console.log(service);
   return (
     <div className="space-y-10">
@@ -15,6 +15,7 @@ const AvailableSlots = ({ service }) => {
             slot={slot}
             name={name}
             doctorName={doctorName}
+            doctor_visit={doctor_visit}
           />
         ))}
       </div>

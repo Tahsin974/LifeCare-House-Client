@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
 
-const SlotCard = ({ slot, name, doctorName }) => {
+const SlotCard = ({ slot, name, doctorName, doctor_visit }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const navigate = useNavigate();
 
@@ -53,6 +53,7 @@ const SlotCard = ({ slot, name, doctorName }) => {
             time={time}
             name={name}
             doctorName={doctorName}
+            doctor_visit={doctor_visit}
             isOpen={isOpen}
             onOpenChange={onOpenChange}
           />

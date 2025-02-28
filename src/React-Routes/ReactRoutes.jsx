@@ -12,6 +12,7 @@ import DashboardLayOut from "../LayOut/DashboardLayOut";
 import DashboardMyAppointments from "../Pages/Dashboard/DashboardMyAppointments/DashboardMyAppointments";
 import DashboardAllUsers from "../Pages/Dashboard/DashboardAllUsers/DashboardAllUsers";
 import AdminRoute from "./AdminRoute";
+import MyHistory from "../Pages/Dashboard/MyHistory/MyHistory";
 const ReactRoutes = () => {
   return (
     <div>
@@ -41,6 +42,7 @@ const ReactRoutes = () => {
             path="/dashboard/DashboardMyAppointments"
             element={<DashboardMyAppointments />}
           />
+          <Route path="my-history" element={<MyHistory />} />
         </Route>
         <Route path="/" element={<MainLayOut />}>
           <Route path="/" element={<Home />} />

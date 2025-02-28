@@ -5,9 +5,16 @@ import useAuthContext from "../../../../Context/useAuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 
-const AppointmentForm = ({ startDate, time, serviceName, doctorName }) => {
+const AppointmentForm = ({
+  startDate,
+  time,
+  serviceName,
+  doctorName,
+  doctor_visit,
+}) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useAuthContext();
+
   const navigate = useNavigate();
 
   const { register, handleSubmit, reset } = useForm();
@@ -59,6 +66,16 @@ const AppointmentForm = ({ startDate, time, serviceName, doctorName }) => {
             className="input input-bordered"
             defaultValue={doctorName || ""}
             {...register("doctorName")}
+            required
+          />
+        </div>
+        <div className="form-control">
+          <input
+            type="text"
+            placeholder="Doctor's Visit"
+            className="input input-bordered"
+            defaultValue={doctor_visit || 0}
+            {...register("doctorVisit")}
             required
           />
         </div>

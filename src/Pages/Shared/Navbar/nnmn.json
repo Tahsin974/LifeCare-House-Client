@@ -1,181 +1,59 @@
 [
   {
-    "id": 1,
-    "name": "Dr. Ruby Perrin",
-    "specialization": "MBBS, MS - General Medicine",
-    "rating": 4.5,
-    "location": "Downtown Medical Center, New York",
-    "lat": 40.712776,
-    "lon": -74.005974,
-    "clinicName": "Downtown Medical Center",
-    "phoneNumber": "+1-212-555-1234",
-    "image": "https://i.ibb.co.com/tKnxZMB/Dr-Ruby-Perrin.jpg",
-    "about": "Dedicated to providing quality healthcare solutions with over 15 years of experience.",
-    "education": ["MBBS - Example University", "MS - General Medicine"],
-    "awards": ["Best Doctor Award", "Community Service Award"],
-    "experience": ["10 years at XYZ Clinic", "5 years at ABC Hospital"],
-    "services": ["Dental Filling", "Teeth Whitening"],
-    "specializations": ["Oral Surgery", "General Medicine"],
-    "available": ["Monday - Saturday: 8:30 AM - 5:30 PM"],
-    "doctor_visit": "$100"
-  },
-  {
-    "id": 2,
-    "name": "Dr. John Doe",
-    "specialization": "MD - Cardiology",
-    "rating": 4.8,
-    "location": "Heart Care Center, Los Angeles",
-    "lat": 34.052235,
-    "lon": -118.243683,
-    "clinicName": "Heart Care Center",
-    "phoneNumber": "+1-310-555-5678",
-    "image": "https://i.ibb.co.com/5v0vNM0/Dr-John-Doe.jpg",
-    "about": "Expert cardiologist focusing on innovative treatments for heart diseases.",
-    "education": [
-      "MD - Harvard Medical School",
-      "Residency in Cardiology - Mayo Clinic"
-    ],
-    "awards": ["Excellence in Cardiac Care", "Top Doctor Award"],
-    "experience": [
-      "8 years at Heart Care Center",
-      "6 years at City General Hospital"
-    ],
-    "services": ["ECG", "Angioplasty"],
-    "specializations": ["Cardiology", "Heart Surgery"],
-    "available": ["Monday - Saturday: 8:30 AM - 5:30 PM"],
-    "doctor_visit": "$150"
-  },
-  {
-    "id": 3,
-    "name": "Dr. Jane Smith",
-    "specialization": "BDS, MDS - Orthodontics",
-    "rating": 4.6,
-    "location": "Smile Dental Clinic, San Francisco",
-    "lat": 37.774929,
-    "lon": -122.419418,
-    "clinicName": "Smile Dental Clinic",
-    "phoneNumber": "+1-415-555-9012",
-    "image": "https://i.ibb.co.com/r5QGzxh/Dr-Jane-Smith.jpg",
-    "about": "Experienced orthodontist with a passion for creating perfect smiles.",
-    "education": ["BDS - University of Dentistry", "MDS - Orthodontics"],
-    "awards": ["Best Orthodontist Award", "Smile Expert Certification"],
-    "experience": [
-      "12 years at Smile Dental Clinic",
-      "3 years at Orthodontics Center"
-    ],
-    "services": ["Braces", "Clear Aligners"],
-    "specializations": ["Orthodontics", "Cosmetic Dentistry"],
-    "available": ["Tuesday - Saturday: 8:00 AM - 3:00 PM"],
-    "doctor_visit": "$80"
-  },
-  {
-    "id": 4,
-    "name": "Dr. Emily Davis",
-    "specialization": "MD - Pediatrics",
-    "rating": 4.7,
-    "location": "Shaheed Suhrawardy Medical College and Hospital, Dhaka",
-    "lat": 23.76875,
-    "lon": 90.36952,
-    "clinicName": "Shaheed Suhrawardy Medical College and Hospital",
-    "phoneNumber": "+1-312-555-3456",
-    "image": "https://i.ibb.co.com/f8FD1WW/Dr-Emily-Davis.jpg",
-    "about": "Dedicated pediatrician with a focus on child health and development.",
-    "education": ["MD - Pediatric Medicine - University of Chicago"],
-    "awards": ["Best Pediatrician Award", "Child Care Excellence Award"],
-    "experience": [
-      "7 years at Children's Health Hospital",
-      "3 years at Family Care Center"
-    ],
-    "services": ["Vaccination", "Growth Monitoring"],
-    "specializations": ["Pediatric Medicine", "Neonatology"],
-    "available": ["Monday - Friday: 9:00 AM - 6:00 PM"],
-    "doctor_visit": "$90"
-  },
-  {
-    "id": 5,
-    "name": "Dr. Michael Brown",
-    "specialization": "MD - Dermatology",
-    "rating": 4.9,
-    "location": "Skin Wellness Center, Miami",
-    "lat": 25.761681,
-    "lon": -80.191788,
-    "clinicName": "Skin Wellness Center",
-    "phoneNumber": "+1-305-555-7890",
-    "image": "https://i.ibb.co.com/HtmSVkm/Dr-Michael-Brown.jpg",
-    "about": "Renowned dermatologist specializing in skin treatments and cosmetic procedures.",
-    "education": ["MD - Dermatology - Stanford University"],
-    "awards": ["Top Dermatologist Award", "Cosmetic Expertise Award"],
-    "experience": [
-      "15 years at Skin Wellness Center",
-      "5 years at Cosmetic Dermatology Clinic"
-    ],
-    "services": ["Acne Treatment", "Laser Therapy"],
-    "specializations": ["Dermatology", "Cosmetic Dermatology"],
-    "available": ["Monday - Saturday: 8:30 AM - 5:30 PM"],
-    "doctor_visit": "$120"
-  }
-]
-,
-
-
-[
-  {
-   
     "name": "Pediatric Dental",
     "image": "https://i.ibb.co.com/dsVBKBch/Pediatric-Dental.jpg",
     "slots": [
       { "time": "11:30 AM - 12:00 PM", "available": true },
-      { "time": "3:30 PM - 4:00 PM", "available": true }
-    ]
+      { "time": "3:30 PM - 4:00 PM", "available": true },
+      { "time": "9:00 AM - 6:00 PM", "available": true }
+    ],
+    "doctorName": "Dr. Emily Davis",
+    "doctor_visit": 90
   },
   {
-   
     "name": "Oral Surgery",
     "image": "https://i.ibb.co.com/hxP9VSgL/Oral-Surgery.jpg",
     "slots": [
       { "time": "10:00 AM - 11:00 AM", "available": false },
-      { "time": "2:00 PM - 3:00 PM", "available": true }
-    ]
+      { "time": "2:00 PM - 3:00 PM", "available": true },
+      { "time": "8:30 AM - 5:30 PM", "available": true }
+    ],
+    "doctorName": "Dr. Ruby Perrin",
+    "doctor_visit": 100
   },
   {
-    
     "name": "Teeth Orthodontics",
     "image": "https://i.ibb.co.com/t1y5pVV/Teeth-Orthodontics.jpg",
     "slots": [
       { "time": "9:00 AM - 9:30 AM", "available": true },
       { "time": "10:00 AM - 10:30 AM", "available": false },
       { "time": "1:00 PM - 1:30 PM", "available": true },
-      { "time": "2:00 PM - 2:30 PM", "available": true }
-    ]
+      { "time": "2:00 PM - 2:30 PM", "available": true },
+      { "time": "8:00 AM - 3:00 PM", "available": true }
+    ],
+    "doctorName": "Dr. Jane Smith",
+    "doctor_visit": 80
   },
   {
-    
     "name": "Cosmetic Dentistry",
     "image": "https://i.ibb.co.com/xS4dxNtT/Cosmetic-Dentistry.jpg",
     "slots": [
       { "time": "11:00 AM - 11:30 AM", "available": true },
-      { "time": "3:00 PM - 3:30 PM", "available": false }
-    ]
+      { "time": "3:00 PM - 3:30 PM", "available": false },
+      { "time": "8:30 AM - 5:30 PM", "available": true }
+    ],
+    "doctorName": "Dr. Michael Brown",
+    "doctor_visit": 120
   },
   {
-    
-    "name": "Cosmetic Dentistry",
-    "image": "https://i.ibb.co.com/xS4dxNtT/Cosmetic-Dentistry.jpg",
-    "slots": [
-      { "time": "11:00 AM - 11:30 AM", "available": true },
-      { "time": "3:00 PM - 3:30 PM", "available": false }
-    ]
-  },
-  {
-   
     "name": "Teeth Cleaning",
     "image": "https://i.ibb.co.com/Cp4yH50n/Teeth-Cleaning.jpg",
     "slots": [
       { "time": "9:30 AM - 10:00 AM", "available": true },
-      { "time": "1:30 PM - 2:00 PM", "available": true }
-    ]
+      { "time": "1:30 PM - 2:00 PM", "available": true },
+      { "time": "8:00 AM - 3:00 PM", "available": true }
+    ],
+    "doctorName": "Dr. Jane Smith",
+    "doctor_visit": 80
   }
 ]
-
-
-add doctor name field on avaliable services and name should be from doctors data only

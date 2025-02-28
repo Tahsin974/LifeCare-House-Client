@@ -1,13 +1,14 @@
 import {
   Button,
   Modal,
-  ModalBody,
   ModalContent,
   ModalHeader,
   useDisclosure,
 } from "@heroui/react";
-const TableRow = ({ appointment, index }) => {
-  const { name, doctorName, date, time, serviceName } = appointment;
+import Payment from "../Payment/Payment/Payment";
+const TableRow = ({ appointment, index, refetch }) => {
+  const { _id, name, doctorName, date, time, serviceName, doctorVisit } =
+    appointment;
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -48,25 +49,18 @@ const TableRow = ({ appointment, index }) => {
                         {time}
                       </p>
 
-                      <h3 className="text-xl font-bold">Please Pay: $200</h3>
+                      <h3 className="text-xl font-bold">
+                        Please Pay: ${doctorVisit}
+                      </h3>
                     </div>
                   </ModalHeader>
                   <div className="divider"></div>
-                  <ModalBody className="space-y-4">
-                    <input
-                      className="input input-bordered"
-                      type="text"
-                      placeholder="Card Number"
-                    />
-                    <input
-                      className="input input-bordered"
-                      placeholder="MM/YY/CVC"
-                      type="text"
-                    />
-                    <button className="btn  bg-[#212631] text-white border-[#212631] hover:bg-[#212631]  hover:border-[#212631] rounded-md">
-                      Pay
-                    </button>
-                  </ModalBody>
+                  <Payment
+                    appointmentId={_id}
+                    serviceName={serviceName}
+                    doctorVisit={doctorVisit}
+                    refetch={refetch}
+                  />
                 </>
               )}
             </ModalContent>

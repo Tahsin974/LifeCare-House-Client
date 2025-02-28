@@ -1,12 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuthContext from "../../../Context/useAuthContext";
-import AppointmentsTableRow from "./TableRow";
+import TableRow from "./TableRow";
 
 const DashboardMyAppointments = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuthContext();
-  const { data: myAppointments = [], isPending } = useQuery({
+  const {
+    data: myAppointments = [],
+    isPending,
+    refetch,
+  } = useQuery({
     queryKey: [axiosSecure, user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/my-appointments?email=${user.email}`);
@@ -53,10 +57,11 @@ const DashboardMyAppointments = () => {
                   </thead>
                   <tbody className="bg-white">
                     {myAppointments.map((appointment, index) => (
-                      <AppointmentsTableRow
+                      <TableRow
                         key={appointment._id}
                         index={index}
                         appointment={appointment}
+                        refetch={refetch}
                       />
                     ))}
                   </tbody>
