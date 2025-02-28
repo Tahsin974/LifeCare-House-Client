@@ -72,7 +72,10 @@ const DashboardLayOut = () => {
       </li>
 
       <li>
-        <Link className="text-lg font-light hover:bg-slate-700">
+        <Link
+          to="/dashboard/my-history"
+          className="text-lg font-light hover:bg-slate-700"
+        >
           My History
         </Link>
       </li>
@@ -175,7 +178,9 @@ const DashboardLayOut = () => {
                   </div>
 
                   {/* Page content here */}
-                  <Outlet />
+                  <div className="pt-10">
+                    <Outlet />
+                  </div>
                 </div>
                 <div className="drawer-side">
                   <label
