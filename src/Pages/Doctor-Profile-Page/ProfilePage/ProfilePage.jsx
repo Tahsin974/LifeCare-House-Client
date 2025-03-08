@@ -24,7 +24,7 @@ const ProfilePage = () => {
           <span className="loading loading-ring loading-lg"></span>
         </div>
       ) : (
-        <div>
+        <div className="p-3">
           <DoctorInfo doctor={doctor} />
           <ProfileSummary doctor={doctor} />
         </div>

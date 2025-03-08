@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
-    "@heroui/react": "^2.6.14",
     "@internationalized/date": "^3.7.0",
     "@stripe/react-stripe-js": "^3.1.1",
     "@stripe/stripe-js": "^5.7.0",
+    "@tailwindcss/vite": "^4.0.10",
     "@tanstack/react-query": "^5.66.0",
     "axios": "^1.7.9",
     "firebase": "^11.3.1",
@@ -29,23 +29,22 @@
     "react-rating": "^2.0.5",
     "react-router": "^7.1.5",
     "react-router-hash-link": "^2.4.3",
+    "recharts": "^2.15.1",
     "sweetalert2": "^11.16.0",
-    "swiper": "^11.2.3"
+    "swiper": "^11.2.3",
+    "tailwindcss": "^4.0.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.23",
+    "daisyui": "^5.0.0",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "postcss": "^8.5.2",
-    "tailwindcss": "^3.4.17",
     "vite": "^6.1.0"
   }
 }

@@ -15,18 +15,20 @@ const AllUsersTableRow = ({ user, index, refetch }) => {
       confirmButtonText: "Yes, Remove!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/delete-user/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            Swal.fire({
-              title: "Removed!",
-              text: `${name} has been removed.`,
-              icon: "success",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            refetch();
-          }
-        });
+        axiosSecure
+          .delete(`/delete-user?id=${id}&&email=${user?.email}`)
+          .then((res) => {
+            if (res.data.result.deletedCount > 0) {
+              Swal.fire({
+                title: "Removed!",
+                text: `${name} has been removed.`,
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              refetch();
+            }
+          });
       }
     });
   };

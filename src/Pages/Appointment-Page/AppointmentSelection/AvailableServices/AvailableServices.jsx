@@ -29,8 +29,8 @@ const AvailableServices = () => {
               onClick={() => setSelected(service)}
               className={
                 selectedService === service
-                  ? "p-6 flex items-center justify-around bg-orange-300 text-white rounded-lg "
-                  : "p-6 flex items-center justify-around bg-white rounded-lg "
+                  ? "p-6 flex items-center justify-around bg-orange-300 text-white rounded-lg border border-gray-200"
+                  : "p-6 flex items-center justify-around bg-white rounded-lg border border-gray-200"
               }
             >
               <img

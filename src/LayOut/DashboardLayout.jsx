@@ -29,7 +29,10 @@ const DashboardLayOut = () => {
             <h2 className="text-xl font-bold text-gray-300">Admin </h2>
           </div>
           <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
+            <Link
+              to={"/dashboard"}
+              className="text-lg font-light hover:bg-slate-700"
+            >
               Dashboard
             </Link>
           </li>
@@ -99,7 +102,7 @@ const DashboardLayOut = () => {
               toggle && "w-[0px] overflow-hidden"
             }`}
           >
-            <DashboardNavbar />
+            <DashboardNavbar navOptions={navOptions} />
           </div>
           <div className="flex-1 ">
             <div>
@@ -178,7 +181,7 @@ const DashboardLayOut = () => {
                   </div>
 
                   {/* Page content here */}
-                  <div className="pt-10">
+                  <div className="bg-[#F1F5F9] pt-6 min-h-screen">
                     <Outlet />
                   </div>
                 </div>

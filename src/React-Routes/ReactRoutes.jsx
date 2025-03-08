@@ -13,6 +13,8 @@ import DashboardMyAppointments from "../Pages/Dashboard/DashboardMyAppointments/
 import DashboardAllUsers from "../Pages/Dashboard/DashboardAllUsers/DashboardAllUsers";
 import AdminRoute from "./AdminRoute";
 import MyHistory from "../Pages/Dashboard/MyHistory/MyHistory";
+import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard/Dashboard";
+
 const ReactRoutes = () => {
   return (
     <div>
@@ -25,10 +27,17 @@ const ReactRoutes = () => {
             </PrivateRoute>
           }
         >
-          <Route path="/dashboard" element={<DashboardMyAppointments />} />
           {/* ADMIN ROUTES */}
           <Route
-            path="/dashboard/all-users"
+            path="/dashboard"
+            element={
+              <AdminRoute>
+                <Dashboard />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="all-users"
             element={
               <AdminRoute>
                 <DashboardAllUsers />
@@ -39,7 +48,7 @@ const ReactRoutes = () => {
           {/* USER ROUTES */}
 
           <Route
-            path="/dashboard/DashboardMyAppointments"
+            path="DashboardMyAppointments"
             element={<DashboardMyAppointments />}
           />
           <Route path="my-history" element={<MyHistory />} />

@@ -1,78 +1,8 @@
-import { Link } from "react-router";
 import logo from "../../../assets/LOGO/logo.png";
-import useAdmin from "../../../Hooks/useAdmin";
 
-const DashboardNavbar = () => {
-  const [isAdmin] = useAdmin();
+const DashboardNavbar = ({ navOptions }) => {
   // const isAdmin = true;
-  const navOptions = (
-    <>
-      {isAdmin && (
-        <>
-          <div className="divider my-6">
-            <h2 className="text-xl font-bold text-gray-300">Admin </h2>
-          </div>
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-lg font-light hover:bg-slate-700"
-              to="/dashboard/all-users"
-            >
-              All Users
-            </Link>
-          </li>
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              Add a Doctor
-            </Link>
-          </li>
-          <li>
-            <Link className="text-lg font-light hover:bg-slate-700">
-              Manage Doctors
-            </Link>
-          </li>
-          <div className="divider my-6">
-            <h2 className="text-xl font-bold text-gray-300">User </h2>
-          </div>
-        </>
-      )}
 
-      <li>
-        <Link
-          to="/dashboard/DashboardMyAppointments"
-          className="text-lg font-light hover:bg-slate-700"
-        >
-          My Appointments
-        </Link>
-      </li>
-      <li>
-        <Link className="text-lg font-light hover:bg-slate-700">
-          My Reviews
-        </Link>
-      </li>
-
-      <li>
-        <Link
-          to="/dashboard/my-history"
-          className="text-lg font-light hover:bg-slate-700"
-        >
-          My History
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="text-lg font-light hover:bg-slate-700"
-          to="/home#banner"
-        >
-          Home
-        </Link>
-      </li>
-    </>
-  );
   return (
     <div className="me-auto ps-4  ">
       <div className="grid justify-items-center gap-y-6">

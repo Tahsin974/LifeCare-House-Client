@@ -37,80 +37,74 @@ const AppointmentForm = ({
   };
 
   return (
-    <div className="card bg-white   shadow-2xl">
-      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="date"
-            className="input input-bordered"
-            value={startDate}
-            {...register("date")}
-            readOnly
-          />
-        </div>
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="time"
-            className="input input-bordered"
-            value={time}
-            {...register("time")}
-            readOnly
-          />
-        </div>
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Doctor's Name"
-            className="input input-bordered"
-            defaultValue={doctorName || ""}
-            {...register("doctorName")}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Doctor's Visit"
-            className="input input-bordered"
-            defaultValue={doctor_visit || 0}
-            {...register("doctorVisit")}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="input input-bordered"
-            defaultValue={user?.displayName || ""}
-            {...register("name")}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <input
-            type="email"
-            placeholder="email"
-            className="input input-bordered"
-            defaultValue={user?.email || ""}
-            {...register("email")}
-            required
-          />
-        </div>
-        <div className="form-control">
-          <input
-            type="number"
-            placeholder="phone number"
-            className="input input-bordered"
-            {...register("phone")}
-            required
-          />
-        </div>
-        <div className="form-control mt-6">
-          <ButtonOrange>Submit</ButtonOrange>
-        </div>
+    <div className="card bg-white   shadow-2xl p-3">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="card-body fieldset space-y-2"
+      >
+        <input
+          type="text"
+          placeholder="date"
+          className="input input-bordered w-full"
+          value={startDate}
+          {...register("date")}
+          readOnly
+        />
+
+        <input
+          type="text"
+          placeholder="time"
+          className="input input-bordered w-full"
+          value={time}
+          {...register("time")}
+          readOnly
+        />
+
+        <input
+          type="text"
+          placeholder="Doctor's Name"
+          className="input input-bordered w-full"
+          defaultValue={doctorName || ""}
+          {...register("doctorName")}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Doctor's Visit"
+          className="input input-bordered w-full"
+          defaultValue={doctor_visit || 0}
+          {...register("doctorVisit")}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="input input-bordered w-full"
+          defaultValue={user?.displayName || ""}
+          {...register("name")}
+          required
+        />
+
+        <input
+          type="email"
+          placeholder="email"
+          className="input input-bordered w-full"
+          defaultValue={user?.email || ""}
+          {...register("email")}
+          required
+        />
+
+        <input
+          type="number"
+          placeholder="phone number"
+          className="input input-bordered w-full"
+          {...register("phone")}
+          required
+        />
+
+        <ButtonOrange>Submit</ButtonOrange>
       </form>
     </div>
   );

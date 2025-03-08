@@ -1,4 +1,3 @@
-import { Divider } from "@heroui/react";
 import { CiDollar } from "react-icons/ci";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
@@ -20,7 +19,7 @@ const DoctorCard = ({ doctor }) => {
   } = doctor;
   return (
     <div>
-      <div className=" card bg-white shadow-xl p-5 border h-[100%]">
+      <div className=" card bg-white shadow-xl p-5 border h-[100%]  border-gray-200">
         <figure className="p-4">
           <img src={image} alt="doctor's image" className="rounded-xl" />
         </figure>
@@ -39,7 +38,7 @@ const DoctorCard = ({ doctor }) => {
             className="my-2"
           />
 
-          <Divider />
+          <div className="divider" />
           <div className="my-3 space-y-3">
             <p className="flex items-center gap-2">
               <IoLocationOutline size={25} /> {location}

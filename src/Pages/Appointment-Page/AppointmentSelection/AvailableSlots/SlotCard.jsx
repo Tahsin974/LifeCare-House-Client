@@ -1,22 +1,25 @@
 import { IoMdTime } from "react-icons/io";
 import MyModal from "./MyModal";
-import { Button, useDisclosure } from "@heroui/react";
 import useAuthContext from "../../../../Context/useAuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router";
+import { useState } from "react";
+import { Button } from "@headlessui/react";
 
 const SlotCard = ({ slot, name, doctorName, doctor_visit }) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const navigate = useNavigate();
 
   const { available, time } = slot;
   console.log("avail:", available);
   const { user } = useAuthContext();
   const location = useLocation();
-  const handleModal = () => {
+  let [isOpen, setIsOpen] = useState(false);
+
+  function open() {
     if (user?.email) {
-      return onOpen();
+      return setIsOpen(true);
     } else {
       return Swal.fire({
         title: "You Are Not Logged In",
@@ -32,10 +35,10 @@ const SlotCard = ({ slot, name, doctorName, doctor_visit }) => {
         }
       });
     }
-  };
+  }
 
   return (
-    <div className="card bg-white shadow-xl p-4">
+    <div className="card bg-white shadow-xl p-4 border border-gray-200">
       <div className="card-body items-center text-center">
         <p className="flex items-center gap-2">
           <IoMdTime size={20} />
@@ -43,19 +46,20 @@ const SlotCard = ({ slot, name, doctorName, doctor_visit }) => {
         </p>
         <div className="card-actions mt-4">
           <Button
-            onPress={handleModal}
-            className="btn lg:btn-wide  bg-orange-600 text-white border-orange-600 hover:bg-orange-700  hover:border-orange-700"
+            onClick={open}
+            className="btn lg:btn-wide  bg-orange-600 text-white  hover:bg-orange-700  hover:border-orange-700"
             disabled={!available && true}
           >
             Book Appointment
           </Button>
+
           <MyModal
             time={time}
             name={name}
             doctorName={doctorName}
             doctor_visit={doctor_visit}
             isOpen={isOpen}
-            onOpenChange={onOpenChange}
+            setIsOpen={setIsOpen}
           />
         </div>
       </div>

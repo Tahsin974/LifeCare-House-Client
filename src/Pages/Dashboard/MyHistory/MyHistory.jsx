@@ -14,7 +14,7 @@ const MyHistory = () => {
   });
   console.log(myPayments);
   return (
-    <div className="bg-[#F1F5F9] min-h-screen p-10">
+    <div className=" min-h-screen p-10">
       {isPending ? (
         <div className="min-h-screen flex justify-center items-center">
           <span className="loading loading-ring loading-lg"></span>

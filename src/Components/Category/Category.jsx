@@ -8,7 +8,7 @@ const Category = ({
   return (
     <div>
       <div
-        className={` border  grid grid-col-2 lg:grid-cols-${colNum}  items-center gap-2 p-4 my-3`}
+        className={` border border-gray-200  grid grid-col-2 lg:grid-cols-${colNum}  items-center gap-2 p-4 my-3`}
       >
         {categories.map((category, index) => (
           <button

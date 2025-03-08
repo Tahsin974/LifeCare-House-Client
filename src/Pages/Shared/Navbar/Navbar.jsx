@@ -1,12 +1,13 @@
-import { Avatar } from "@heroui/react";
 import { Link, useNavigate } from "react-router";
 import useAuthContext from "../../../Context/useAuthContext";
 import { HashLink } from "react-router-hash-link";
 import img from "../../../assets/SignUp/user.png";
 import logo from "../../../assets/LOGO/logo.png";
 import { FiMenu } from "react-icons/fi";
+import useAdmin from "../../../Hooks/useAdmin";
 const MenuBar = ({ children }) => {
   const { user, setUser, userLogOut } = useAuthContext();
+  const [isAdmin] = useAdmin();
   const navigate = useNavigate();
   const handleLogOut = () => {
     userLogOut().then(() => {
@@ -48,7 +49,10 @@ const MenuBar = ({ children }) => {
       {user?.email && (
         <>
           <li>
-            <HashLink className="text-lg font-semibold" to="/dashboard">
+            <HashLink
+              className="text-lg font-semibold"
+              to={isAdmin ? "/dashboard" : "/dashboard/DashboardMyAppointments"}
+            >
               Dashboard
             </HashLink>
           </li>
@@ -86,14 +90,23 @@ const MenuBar = ({ children }) => {
             </div>
             <div className="navbar-end">
               {user?.email ? (
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end ">
                   <div
                     tabIndex={0}
                     role="button"
-                    className="btn btn-ghost btn-circle bg-slate-400 hover:bg-slate-400 shadow-lg "
+                    className="btn btn-ghost btn-circle btn-lg avatar bg-slate-400 hover:bg-slate-400 shadow-lg"
                   >
-                    <Avatar src={user?.photoURL || img} />
+                    <div className="w-10 rounded-full">
+                      <img src={user?.photoURL || img} />
+                    </div>
                   </div>
+                  {/* <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle bg-slate-400 hover:bg-slate-400 avatar shadow-lg "
+                  >
+                    <img src={user?.photoURL || img} />
+                  </div> */}
                   <ul
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-gray-600 bg-opacity-80 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-1  font-semibold"

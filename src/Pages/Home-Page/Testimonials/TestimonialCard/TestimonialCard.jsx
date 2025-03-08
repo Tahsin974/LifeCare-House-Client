@@ -1,11 +1,3 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-  Image,
-} from "@heroui/react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
@@ -14,34 +6,34 @@ const TestimonialCard = ({ testimonial }) => {
   const { patientName, image, profession, feedback, rating } = testimonial;
   return (
     <div>
-      <Card className=" border ">
+      <div className=" border border-gray-200 card rounded-2xl ">
         <div className="lg:flex p-5">
-          <div>
-            <CardHeader>
-              <div className="flex gap-4">
-                <Image
+          <div className="card-body space-y-5">
+            {/* card header */}
+            <div>
+              <div className="lg:flex gap-4">
+                <img
                   alt="heroui logo"
-                  height={70}
-                  radius="sm"
+                  className="rounded-lg h-[70px] w-[80px]"
                   src={image}
-                  width={70}
                 />
                 <div className="flex flex-col">
-                  <p className="text-md">{patientName}</p>
-                  <p className="text-small text-default-500">{profession}</p>
+                  <p className="text-lg font-semibold">{patientName}</p>
+                  <p className="text-small font-light text-default-500">
+                    {profession}
+                  </p>
                 </div>
               </div>
-              {/* <FaQuoteLeft className="text-orange-500 opacity-50" size={50}/> */}
-            </CardHeader>
-
-            <CardBody className=" px-2">
-              <p>{feedback}</p>
-            </CardBody>
+            </div>
+            {/* card body */}
+            <div className=" px-2">
+              <p className="text-lg/7">{feedback}</p>
+            </div>
           </div>
           <FaQuoteLeft className="text-orange-500 opacity-50" size={60} />
         </div>
-        <Divider />
-        <CardFooter>
+        <div className="divider" />
+        <div className="p-3">
           <Rating
             initialRating={rating}
             readonly
@@ -50,8 +42,8 @@ const TestimonialCard = ({ testimonial }) => {
             }
             fullSymbol={<IoIosStar className="text-orange-500" size={25} />}
           />
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
